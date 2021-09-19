@@ -18,10 +18,11 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 
-from upload.views import image_upload
+from upload.views import greeting, image_upload
 
 urlpatterns = [
-    path('', image_upload, name='upload'),
+    path('', greeting, name='greeting'),
+    path('upload/', image_upload, name='upload'),
     path('admin/', admin.site.urls),
 ]
 

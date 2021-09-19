@@ -1,3 +1,4 @@
+from django.http import JsonResponse
 from django.shortcuts import render
 from django.core.files.storage import FileSystemStorage
 
@@ -13,3 +14,6 @@ def image_upload(request):
             'image_url': image_url
         })
     return render(request, 'upload.html')
+
+def greeting(request):
+    return JsonResponse({'hello': 'world'})
