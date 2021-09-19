@@ -79,8 +79,10 @@ jobs:
         env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock
         run: |
-          scp  -o StrictHostKeyChecking=no -r ./.env ./docker-compose.prod.yml ubuntu@${{ secrets.AWS_LIGHTSAIL_IP_ADDRESS }}:~/app
+          scp -o StrictHostKeyChecking=no -r ./.env ./docker-compose.prod.yml ubuntu@${{ secrets.AWS_LIGHTSAIL_IP_ADDRESS }}:~/
           ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.AWS_LIGHTSAIL_IP_ADDRESS }} << 'ENDSSH'
+            mkdir app
+            mv ./.env ./docker-compose.prod.yml ~/app
             cd ~/app
             source .env
             docker login ghcr.io -u $NAMESPACE -p $PERSONAL_ACCESS_TOKEN
