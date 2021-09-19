@@ -15,5 +15,6 @@ def image_upload(request):
         })
     return render(request, 'upload.html')
 
+
 def greeting(request):
     return JsonResponse({'hello': 'world'})
