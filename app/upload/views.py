@@ -17,4 +17,4 @@ def image_upload(request):
 
 
 def greeting(request):
-    return JsonResponse({'hello': 'world'})
+    return JsonResponse({'hello': 'world!'})
